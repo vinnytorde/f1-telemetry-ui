@@ -15,9 +15,9 @@ const topics = {
   lobbyInfo: '/telemetry/lobbyInfo',
 }
 
-const createAction = (topic) => ({
+const createAction = topic => ({
   topic,
-  actionCreator: (payload) => {
+  actionCreator: payload => {
     return {
       type: topic,
       payload: JSON.parse(payload.body),
@@ -40,7 +40,7 @@ export const actions = [
 ]
 
 const createReducer =
-  (topic) =>
+  topic =>
   (state = {}, action) => {
     if (action.type === topic) {
       return action.payload
@@ -49,7 +49,7 @@ const createReducer =
   }
 
 const createListReducer =
-  (topic) =>
+  topic =>
   (state = [], action) => {
     if (action.type === topic) {
       return [...state, action.payload]

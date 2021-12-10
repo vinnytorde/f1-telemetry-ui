@@ -7,10 +7,10 @@ import { actions } from './redux'
 export function useF1Socket() {
   const dispatch = useDispatch()
   const reduxActionsAsListeners = useMemo(() => {
-    return actions.map((action) => {
+    return actions.map(action => {
       return {
         ...action,
-        listener: (payload) => dispatch(action.actionCreator(payload)),
+        listener: payload => dispatch(action.actionCreator(payload)),
       }
     })
   }, [dispatch])
@@ -19,7 +19,7 @@ export function useF1Socket() {
     const socket = new SockJS('http://localhost:8080/f1')
     const stompClient = Stomp.over(socket)
     stompClient.connect({}, () => {
-      reduxActionsAsListeners.forEach((action) => {
+      reduxActionsAsListeners.forEach(action => {
         stompClient.subscribe(action.topic, action.listener)
       })
     })
