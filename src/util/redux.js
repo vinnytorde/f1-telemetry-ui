@@ -39,6 +39,15 @@ export const actions = [
   createAction(topics.lobbyInfo),
 ]
 
+const createReducer =
+  (topic) =>
+  (state = {}, action) => {
+    if (action.type === topic) {
+      return action.payload
+    }
+    return state
+  }
+
 const createListReducer =
   (topic) =>
   (state = [], action) => {
@@ -49,7 +58,7 @@ const createListReducer =
   }
 
 const reducers = {
-  liveness: createListReducer(topics.liveness),
+  liveness: createReducer(topics.liveness),
   session: createListReducer(topics.session),
   motion: createListReducer(topics.motion),
   lapData: createListReducer(topics.lapData),
