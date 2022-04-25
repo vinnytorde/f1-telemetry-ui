@@ -5,7 +5,6 @@ import { useF1Socket } from './util/socket'
 function App() {
   useF1Socket()
 
-  const liveness = useSelector(state => state.liveness.content)
   const session = useSelector(state => state.session.length)
   const motion = useSelector(state => state.motion.length)
   const lapData = useSelector(state => state.lapData.length)
@@ -21,10 +20,8 @@ function App() {
 
   return (
     <div className="App">
+      <div>something useful here</div>
       <div>MESSAGE COUNT</div>
-      <div>
-        <span>liveness:</span> <span>{liveness}</span>
-      </div>
       <div>
         <span>session:</span> <span>{session}</span>
       </div>

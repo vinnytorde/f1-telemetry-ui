@@ -2,17 +2,16 @@ import { Provider } from 'react-redux'
 import { combineReducers, createStore } from 'redux'
 
 const topics = {
-  liveness: '/telemetry/liveness',
-  session: '/telemetry/session',
-  motion: '/telemetry/motion',
-  lapData: '/telemetry/lapData',
-  event: '/telemetry/event',
-  participants: '/telemetry/participants',
-  carSetups: '/telemetry/carSetups',
-  carTelemetry: '/telemetry/carTelemetry',
-  carStatus: '/telemetry/carStatus',
-  finalClassification: '/telemetry/finalClassification',
-  lobbyInfo: '/telemetry/lobbyInfo',
+  session: 'session',
+  motion: 'motion',
+  lapData: 'lapData',
+  event: 'event',
+  participants: 'participants',
+  carSetups: 'carSetups',
+  carTelemetry: 'carTelemetry',
+  carStatus: 'carStatus',
+  finalClassification: 'finalClassification',
+  lobbyInfo: 'lobbyInfo',
 }
 
 const createAction = topic => ({
@@ -20,13 +19,12 @@ const createAction = topic => ({
   actionCreator: payload => {
     return {
       type: topic,
-      payload: JSON.parse(payload.body),
+      payload: payload,
     }
   },
 })
 
 export const actions = [
-  createAction(topics.liveness),
   createAction(topics.session),
   createAction(topics.motion),
   createAction(topics.lapData),
@@ -39,15 +37,6 @@ export const actions = [
   createAction(topics.lobbyInfo),
 ]
 
-const createReducer =
-  topic =>
-  (state = {}, action) => {
-    if (action.type === topic) {
-      return action.payload
-    }
-    return state
-  }
-
 const createListReducer =
   topic =>
   (state = [], action) => {
@@ -58,7 +47,6 @@ const createListReducer =
   }
 
 const reducers = {
-  liveness: createReducer(topics.liveness),
   session: createListReducer(topics.session),
   motion: createListReducer(topics.motion),
   lapData: createListReducer(topics.lapData),
