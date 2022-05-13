@@ -1,0 +1,75 @@
+export const sessionType = [
+  'Unknown Session',
+  'Practice 1',
+  'Practice 2',
+  'Practice 3',
+  'Short Practice',
+  'Qualifying 1',
+  'Qualitying 2',
+  'Qualifying 3',
+  'Short Qualifying',
+  'One-Shot Qualifying',
+  'Race',
+  'Race 2',
+  'Time Trial',
+]
+
+export const driverStatus = [
+  'In garage',
+  'Flying lap',
+  'In lap',
+  'Out lap',
+  'On track',
+]
+
+export const teams = [
+  'Mercedes',
+  'Ferrari',
+  'Red Bull Racing',
+  'Williams',
+  'Racing Point',
+  'Renault',
+  'Alpha Tauri',
+  'Haas',
+  'McLaren',
+  'Alfa Romeo',
+]
+
+export const tracks = [
+  'Melbourne',
+  'Paul Ricard',
+  'Shanghai',
+  'Sakhir (Bahrain)',
+  'Catalunya',
+  'Monaco',
+  'Montreal',
+  'Silverstone',
+  'Hockenheim',
+  'Hungaroring',
+  'Spa',
+  'Monza',
+  'Singapore',
+  'Suzuka',
+  'Abu Dhabi',
+  'Texas',
+  'Brazil',
+  'Austria',
+  'Sochi',
+  'Mexico',
+  'Baku (Azerbaijan)',
+  'Sakhir Short',
+  'Silverstone Short',
+  'Texas Short',
+  'Suzuka Short',
+  'Hanoi',
+  'Zandvoort',
+]
+
+export const weather = [
+  'Clear',
+  'Light Clouds',
+  'Overcast',
+  'Light Rain',
+  'Heavy Rain',
+  'Storm',
+]

@@ -19,6 +19,5 @@ export function useF1Socket() {
     reduxActionsAsListeners.forEach(action => {
       socket.on(action.topic, action.listener)
     })
-    socket.on('yo moms', p => console.log(p))
   }, [reduxActionsAsListeners])
 }
